@@ -202,16 +202,24 @@ export const CareerResults = ({ data, onBack }: CareerResultsProps) => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto p-6 space-y-8 animate-fade-in">
-      {/* Header */}
-      <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-          Your Personalized Career Guide
-        </h1>
-        <p className="text-xl text-muted-foreground">
-          Hello {data.name}! Based on your assessment, here's your tailored career roadmap
-        </p>
+    <div className="min-h-screen bg-gradient-dark relative">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-40 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent/5 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-primary/3 rounded-full blur-xl animate-float" style={{ animationDelay: '1s' }}></div>
       </div>
+
+      <div className="max-w-7xl mx-auto p-6 pt-20 space-y-12 animate-professional-enter relative z-10">
+        {/* Header */}
+        <div className="text-center space-y-6">
+          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent font-inter tracking-tight">
+            Your Personalized Career Guide
+          </h1>
+          <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+            Hello <span className="text-primary font-semibold">{data.name}</span>! Based on your assessment, here's your tailored career roadmap
+          </p>
+        </div>
 
       {/* Career Paths */}
       <section>
@@ -357,6 +365,7 @@ export const CareerResults = ({ data, onBack }: CareerResultsProps) => {
         >
           Take Assessment Again
         </Button>
+      </div>
       </div>
     </div>
   );

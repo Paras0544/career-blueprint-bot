@@ -42,16 +42,26 @@ export const CareerAssessment = ({ onComplete }: CareerAssessmentProps) => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 animate-fade-in">
-      <Card className="shadow-professional border-0 bg-gradient-card">
-        <CardHeader className="text-center pb-8">
-          <CardTitle className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-            Career Assessment
-          </CardTitle>
-          <CardDescription className="text-lg text-muted-foreground">
-            Help us understand your background to provide personalized career guidance
-          </CardDescription>
-        </CardHeader>
+    <div className="min-h-screen bg-gradient-dark relative">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-32 right-20 w-64 h-64 bg-primary/5 rounded-full blur-2xl animate-float"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }}></div>
+      </div>
+      
+      <div className="max-w-3xl mx-auto p-6 pt-20 relative z-10 animate-professional-enter">
+        <Card className="shadow-professional border border-border/30 bg-gradient-card backdrop-blur-sm">
+          <CardHeader className="text-center pb-10">
+            <div className="mx-auto mb-6 p-4 rounded-2xl bg-gradient-primary shadow-glow w-fit">
+              <Target className="h-8 w-8 text-primary-foreground" />
+            </div>
+            <CardTitle className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent font-inter tracking-tight">
+              Career Assessment
+            </CardTitle>
+            <CardDescription className="text-lg text-muted-foreground leading-relaxed mt-4">
+              Help us understand your background to provide personalized career guidance
+            </CardDescription>
+          </CardHeader>
         
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-8">
@@ -218,15 +228,16 @@ export const CareerAssessment = ({ onComplete }: CareerAssessmentProps) => {
 
             <Button 
               type="submit" 
-              className="w-full bg-gradient-primary hover:bg-primary-dark transition-all duration-300 shadow-soft"
+              className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 shadow-professional text-lg py-6 font-semibold tracking-wide group"
               size="lg"
             >
               Get My Career Roadmap
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </form>
         </CardContent>
       </Card>
+    </div>
     </div>
   );
 };
